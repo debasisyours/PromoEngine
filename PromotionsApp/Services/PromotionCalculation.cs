@@ -42,7 +42,7 @@ namespace PromotionsApp.Services
             return success;
         }
 
-        private InputModel ApplyPromotionInternal(InputModel inputModel, Promotion promotion, List<SkuItem> skuItems)
+        public InputModel ApplyPromotionInternal(InputModel inputModel, Promotion promotion, List<SkuItem> skuItems)
         {
             decimal originalPrice = 0;
 

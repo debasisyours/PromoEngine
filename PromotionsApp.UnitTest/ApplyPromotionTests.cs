@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PromotionsApp.Models;
 using PromotionsApp.Services;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PromotionsApp.UnitTest
 {
@@ -148,6 +149,84 @@ namespace PromotionsApp.UnitTest
 
             // Assert
             Assert.IsTrue(canApply);
+        }
+
+        [TestMethod]
+        public void When_I_Call_ApplyPromotionInternal_With_A_Applicable_Promotion_Then_PromotionMinimum_Quantity_Should_Be_Reduced_From_Model()
+        {
+            // Arrange
+            InputModel inputModel = new InputModel
+            {
+                InputSkuModels = new List<InputSkuModel>
+                {
+                    new InputSkuModel
+                    {
+                        SkuName="B", Quantity=2
+                    },
+                    new InputSkuModel
+                    {
+                        SkuName="C", Quantity=3
+                    }
+                }
+            };
+
+            Promotion promotion = new Promotion
+            {
+                PromotionItems = new List<PromotionItem>
+                {
+                    new PromotionItem
+                    {
+                        SkuName="B", MinQuantity=2
+                    }
+                },
+                PromoPrice = 80
+            };
+
+            // Act
+            var output = _promotionCalculation.ApplyPromotionInternal(inputModel, promotion, _skuList);
+
+            // Assert
+            Assert.AreEqual(inputModel.InputSkuModels.FirstOrDefault(s => s.SkuName == "B").Quantity, 0);
+        }
+
+        [TestMethod]
+        public void When_I_Call_ApplyPromotionInternal_With_A_Applicable_Promotion_Then_FinalPrice_Should_Be_Increased_By_PromoPrice()
+        {
+            // Arrange
+            decimal originalPrice = 180;
+            InputModel inputModel = new InputModel
+            {
+                InputSkuModels = new List<InputSkuModel>
+                {
+                    new InputSkuModel
+                    {
+                        SkuName="B", Quantity=2
+                    },
+                    new InputSkuModel
+                    {
+                        SkuName="C", Quantity=3
+                    }
+                },
+                FinalPrice = originalPrice
+            };
+
+            Promotion promotion = new Promotion
+            {
+                PromotionItems = new List<PromotionItem>
+                {
+                    new PromotionItem
+                    {
+                        SkuName="B", MinQuantity=2
+                    }
+                },
+                PromoPrice = 80
+            };
+
+            // Act
+            var output = _promotionCalculation.ApplyPromotionInternal(inputModel, promotion, _skuList);
+
+            // Assert
+            Assert.AreEqual(inputModel.FinalPrice, originalPrice+promotion.PromoPrice);
         }
     }
 }

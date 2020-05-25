@@ -1,0 +1,10 @@
+D:\Debasis\Researches\Collabera\Git\PromotionsApp\bin\Debug\netcoreapp3.1\PromotionsApp.exe
+D:\Debasis\Researches\Collabera\Git\PromotionsApp\bin\Debug\netcoreapp3.1\PromotionsApp.deps.json
+D:\Debasis\Researches\Collabera\Git\PromotionsApp\bin\Debug\netcoreapp3.1\PromotionsApp.runtimeconfig.json
+D:\Debasis\Researches\Collabera\Git\PromotionsApp\bin\Debug\netcoreapp3.1\PromotionsApp.runtimeconfig.dev.json
+D:\Debasis\Researches\Collabera\Git\PromotionsApp\bin\Debug\netcoreapp3.1\PromotionsApp.dll
+D:\Debasis\Researches\Collabera\Git\PromotionsApp\bin\Debug\netcoreapp3.1\PromotionsApp.pdb
+D:\Debasis\Researches\Collabera\Git\PromotionsApp\obj\Debug\netcoreapp3.1\PromotionsApp.AssemblyInfoInputs.cache
+D:\Debasis\Researches\Collabera\Git\PromotionsApp\obj\Debug\netcoreapp3.1\PromotionsApp.AssemblyInfo.cs
+D:\Debasis\Researches\Collabera\Git\PromotionsApp\obj\Debug\netcoreapp3.1\PromotionsApp.dll
+D:\Debasis\Researches\Collabera\Git\PromotionsApp\obj\Debug\netcoreapp3.1\PromotionsApp.pdb
